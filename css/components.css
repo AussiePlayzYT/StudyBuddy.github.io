@@ -1,0 +1,935 @@
+/* =========================================================
+   STUDYHUB - COMPONENTS CSS
+   Dashboard cards, tasks, goals, recommendations and UI
+   components
+   ========================================================= */
+
+
+/* =========================================================
+   1. STAT CARDS
+   ========================================================= */
+
+.stat-card {
+    padding: 18px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-xs);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--border-dark);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.stat-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+
+.stat-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+}
+
+
+.study-icon {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+
+.task-icon {
+    color: var(--success);
+    background: var(--success-light);
+}
+
+
+.streak-icon {
+    color: #b45309;
+    background: var(--warning-light);
+}
+
+
+.goal-icon {
+    color: #7c3aed;
+    background: #f5f3ff;
+}
+
+
+.stat-label {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+
+.stat-value {
+    margin-bottom: 4px;
+
+    color: var(--text-primary);
+
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: -0.02em;
+}
+
+
+.stat-description {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+}
+
+
+.stat-description strong {
+    color: var(--success);
+
+    font-weight: var(--font-weight-semibold);
+}
+
+
+/* =========================================================
+   2. DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard-card {
+    min-width: 0;
+
+    padding: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-xs);
+}
+
+
+.card-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+
+.card-eyebrow {
+    margin-bottom: 4px;
+
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+.card-header h3 {
+    font-size: var(--font-size-lg);
+
+    letter-spacing: -0.015em;
+}
+
+
+.card-link {
+    flex-shrink: 0;
+
+    color: var(--primary);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+
+.card-link:hover {
+    color: var(--primary-dark);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   3. TASK LIST
+   ========================================================= */
+
+.task-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.task-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 64px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--border-light);
+
+    cursor: pointer;
+}
+
+
+.task-item:last-child {
+    border-bottom: 0;
+}
+
+
+.task-item input[type="checkbox"] {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.task-check {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    border: 1.5px solid var(--border-dark);
+
+    border-radius: var(--radius-sm);
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+
+.task-item input[type="checkbox"]:checked + .task-check {
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+
+.task-item input[type="checkbox"]:checked + .task-check::after {
+    content: "✓";
+
+    color: var(--text-white);
+
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+}
+
+
+.task-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    flex: 1;
+
+    gap: 3px;
+}
+
+
+.task-name {
+    overflow: hidden;
+
+    color: var(--text-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.task-name.completed {
+    color: var(--text-muted);
+
+    text-decoration: line-through;
+}
+
+
+.task-meta {
+    overflow: hidden;
+
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   4. TASK PRIORITIES
+   ========================================================= */
+
+.task-priority {
+    flex-shrink: 0;
+
+    padding: 4px 8px;
+
+    border-radius: var(--radius-full);
+
+    font-size: 10px;
+    font-weight: var(--font-weight-semibold);
+}
+
+
+.priority-high {
+    color: #991b1b;
+    background: var(--danger-light);
+}
+
+
+.priority-medium {
+    color: #92400e;
+    background: var(--warning-light);
+}
+
+
+.priority-low {
+    color: #166534;
+    background: var(--success-light);
+}
+
+
+/* =========================================================
+   5. STUDY GOAL
+   ========================================================= */
+
+.study-goal {
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+.progress-circle {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
+    height: 120px;
+
+    flex-shrink: 0;
+
+    background:
+        conic-gradient(
+            var(--primary) 0deg 270deg,
+            #e5e7eb 270deg 360deg
+        );
+
+    border-radius: 50%;
+}
+
+
+.progress-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 88px;
+    height: 88px;
+
+    background: var(--surface);
+
+    border-radius: 50%;
+}
+
+
+.progress-circle-inner {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 1;
+}
+
+
+.progress-circle-inner strong {
+    color: var(--text-primary);
+
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+
+.progress-circle-inner span {
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+.goal-information {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 4px;
+}
+
+
+.goal-information strong {
+    color: var(--text-primary);
+
+    font-size: var(--font-size-xl);
+}
+
+
+.goal-information > span {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-sm);
+}
+
+
+.goal-information .progress-bar {
+    width: 180px;
+
+    margin-top: 8px;
+}
+
+
+.goal-information small {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+}
+
+
+/* =========================================================
+   6. RECOMMENDATION CARD
+   ========================================================= */
+
+.recommendation-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-color: #dbeafe;
+}
+
+
+.recommendation-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--primary);
+}
+
+
+.recommendation-status {
+    padding: 5px 9px;
+
+    color: var(--primary-dark);
+
+    background: var(--primary-light);
+
+    border-radius: var(--radius-full);
+
+    font-size: 10px;
+    font-weight: var(--font-weight-semibold);
+
+    white-space: nowrap;
+}
+
+
+.recommendation-content {
+    padding: 4px 0 0 4px;
+}
+
+
+.recommendation-subject {
+    margin-bottom: 5px;
+
+    color: var(--primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+
+.recommendation-content h4 {
+    margin-bottom: 8px;
+
+    font-size: var(--font-size-xl);
+}
+
+
+.recommendation-content p {
+    max-width: 520px;
+
+    margin-bottom: 18px;
+
+    color: var(--text-secondary);
+
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+
+.recommendation-details {
+    display: flex;
+
+    gap: 36px;
+
+    margin-bottom: 18px;
+}
+
+
+.recommendation-details div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.recommendation-details span {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+}
+
+
+.recommendation-details strong {
+    color: var(--text-primary);
+
+    font-size: var(--font-size-sm);
+}
+
+
+/* =========================================================
+   7. UPCOMING ITEMS
+   ========================================================= */
+
+.upcoming-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.upcoming-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 68px;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+
+.upcoming-item:last-child {
+    border-bottom: 0;
+}
+
+
+.upcoming-date {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    background: var(--surface-secondary);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+}
+
+
+.upcoming-date span {
+    color: var(--text-muted);
+
+    font-size: 9px;
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: 0.05em;
+}
+
+
+.upcoming-date strong {
+    color: var(--text-primary);
+
+    font-size: var(--font-size-md);
+}
+
+
+.upcoming-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 4px;
+}
+
+
+.upcoming-content strong {
+    overflow: hidden;
+
+    color: var(--text-primary);
+
+    font-size: var(--font-size-sm);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.upcoming-content span {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+}
+
+
+/* =========================================================
+   8. SUBJECT PROGRESS
+   ========================================================= */
+
+.subject-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.subject-progress {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.subject-progress-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.subject-progress-header > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.subject-progress-header strong {
+    color: var(--text-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+
+.subject-progress-header > span {
+    color: var(--text-muted);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+
+.subject-colour {
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+
+.subject-colour.mathematics {
+    background: var(--mathematics);
+}
+
+
+.subject-colour.english {
+    background: var(--english);
+}
+
+
+.subject-colour.biology {
+    background: var(--biology);
+}
+
+
+.subject-colour.physics {
+    background: var(--physics);
+}
+
+
+/* =========================================================
+   9. QUICK ACTIONS
+   ========================================================= */
+
+.quick-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.quick-action {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-height: 54px;
+
+    padding: 10px;
+
+    color: var(--text-secondary);
+
+    background: var(--surface-secondary);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+
+    text-align: left;
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+.quick-action:hover {
+    color: var(--text-primary);
+
+    background: var(--surface-hover);
+
+    border-color: var(--border-dark);
+
+    transform: translateY(-1px);
+}
+
+
+.quick-action-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    color: var(--primary);
+
+    background: var(--primary-light);
+
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+}
+
+
+/* =========================================================
+   10. RESPONSIVE COMPONENTS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-card {
+        padding: 16px;
+    }
+
+
+    .stat-card {
+        padding: 15px;
+    }
+
+
+    .stat-value {
+        font-size: var(--font-size-xl);
+    }
+
+
+    .study-goal {
+        gap: 18px;
+    }
+
+
+    .progress-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .progress-circle::before {
+        width: 74px;
+        height: 74px;
+    }
+
+
+    .goal-information .progress-bar {
+        width: 150px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .card-header {
+        margin-bottom: 14px;
+    }
+
+
+    .card-header h3 {
+        font-size: var(--font-size-md);
+    }
+
+
+    .study-goal {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .goal-information {
+        width: 100%;
+    }
+
+
+    .goal-information .progress-bar {
+        width: 100%;
+    }
+
+
+    .recommendation-details {
+        gap: 20px;
+    }
+
+
+    .task-priority {
+        display: none;
+    }
+
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
